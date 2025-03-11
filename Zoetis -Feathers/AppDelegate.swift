@@ -45,9 +45,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MessagingDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         let containerViewController = ContainerViewController()
         window!.rootViewController = containerViewController
-        
-        let serneyNoStr = generateSeveyNumber()
-        
     }
     
     func showAlert(_ msg:String) {
@@ -102,17 +99,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MessagingDelegate {
         application.isStatusBarHidden = true
         //        setUpSlideMenu()
         metricOrImperialClick = "Imperial"
-//        var i: Int?
-//        i = UserDefaults.standard.integer(forKey: "isFeed")
-//        if i != 1 {
-//            let feed = UserDefaults.standard.integer(forKey: "feedId")
-//            if feed>0 {
-//            } else {
-//                UserDefaults.standard.set(-1, forKey: "feedId")
-//                UserDefaults.standard.synchronize()
-//            }
-//        }
-        
+
         
         let isFeed = UserDefaults.standard.integer(forKey: "isFeed")
         if isFeed != 1 {
@@ -122,12 +109,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MessagingDelegate {
             }
         }
         
-        var isNewPostingId = UserDefaults.standard.bool(forKey: "isNewPostingId")
         
         
         if userDefaults.object(forKey: "ApplicationIdentifier") == nil {
-            let UUID = Foundation.UUID().uuidString
-            userDefaults.set(UUID, forKey: "ApplicationIdentifier")
+            let uniqueID = Foundation.UUID().uuidString
+            userDefaults.set(uniqueID, forKey: "ApplicationIdentifier")
             userDefaults.synchronize()
         }
         
@@ -299,17 +285,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MessagingDelegate {
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         let val = UserDefaults.standard.integer(forKey: "chick")
         if val  ==  4 {
-            if let VC = window?.rootViewController as? DashViewController {
+            if let dashView = window?.rootViewController as? DashViewController {
                 // Update JSON data
-                VC.self.callSyncApi()
+                dashView.self.callSyncApi()
                 completionHandler(.newData)
             } else {
                 completionHandler(.failed)
             }
         } else {
-            if let VC = window?.rootViewController as? DashViewControllerTurkey {
+            if let dashViewTurkey = window?.rootViewController as? DashViewControllerTurkey {
                 // Update JSON data
-                VC.self.callSyncApi()
+                dashViewTurkey.self.callSyncApi()
                 completionHandler(.newData)
             } else {
                 completionHandler(.failed)
@@ -411,7 +397,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MessagingDelegate {
         
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
         let url = self.applicationDocumentsDirectory.appendingPathComponent("SingleViewCoreData.sqlite")
-        var failureReason = "There was an error creating or loading the application's saved data."
+        let failureReason = "There was an error creating or loading the application's saved data."
         do {
             let options = [ NSInferMappingModelAutomaticallyOption: true,
                       NSMigratePersistentStoresAutomaticallyOption: true]
