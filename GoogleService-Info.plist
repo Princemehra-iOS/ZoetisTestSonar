@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>874843080367-nps495dv9t60pllojdds364rl89dl42a.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.874843080367-nps495dv9t60pllojdds364rl89dl42a</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDvyY3uJBhpC96XcrtfyFh7aN2sERfvJ-g</string>
+	<key>GCM_SENDER_ID</key>
+	<string>874843080367</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>PROJECT_ID</key>
+	<string>pv360-prod</string>
+	<key>STORAGE_BUCKET</key>
+	<string>pv360-prod.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:874843080367:ios:3f789e7e27f93d0196365a</string>
+	<key>GigyaApiKey</key>
+	<string>4_hjazVLrIlvZQc7ysmi5dgw</string>
+	<key>GigyaApiDomain</key>
+	<string>us1.gigya.com</string>
+	<key>DATABASE_URL</key>
+	<string>https://pv360-prod.firebaseio.com</string>
+</dict>
+</plist>

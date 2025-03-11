@@ -1,0 +1,127 @@
+//
+//  splashViewController.swift
+//  Zoetis -Feathers
+//
+//  Created by "" on 02/01/17.
+//  Copyright © 2017 "". All rights reserved.
+
+import UIKit
+import MediaPlayer
+import AVKit
+
+class splashViewController: UIViewController {
+    var moviePlayer: AVPlayerViewController?
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        let totalExustingArr = CoreDataHandlerTurkey().fetchAllWithOutFeddTurkey(capNec: 1, birdTypeId: 1).mutableCopy() as! NSMutableArray
+        for i in 0..<totalExustingArr.count {
+            let postingSession: PostingSessionTurkey = totalExustingArr.object(at: i) as! PostingSessionTurkey
+            let pid = postingSession.postingId
+            let feedProgram =  CoreDataHandlerTurkey().FetchFeedProgramTurkey(pid!)
+            if feedProgram.count == 0 {
+                CoreDataHandlerTurkey().updatePostingSessionOndashBoardTurkey(pid!, vetanatrionName: "", veterinarianId: 0, captureNec: 2)
+                CoreDataHandlerTurkey().deletefieldVACDataWithPostingIdTurkey(pid!)
+                CoreDataHandlerTurkey().deleteDataWithPostingIdHatcheryTurkey(pid!)
+            }
+        }
+        playVideo()
+        let seconds = 11.0
+        let delay = seconds * Double(NSEC_PER_SEC)
+        let dispatchTime = DispatchTime.now() + Double(Int64(delay)) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.asyncAfter(deadline: dispatchTime, execute: {
+
+            let appdel = UIApplication.shared.delegate as! AppDelegate
+            DispatchQueue.global().async {
+                do {
+                  let checkForVersion = try appdel.isUpdateAvailable()
+                    if checkForVersion {
+//                        let alert = UIAlertController(title:"PoultryView360" , message: "Updated version of App is available. Please update now.", preferredStyle: UIAlertController.Style.alert)
+//                        let updateAction = UIAlertAction(title: "Update now", style: UIAlertAction.Style.default) {
+//                            UIAlertAction in
+//                            appdel.updateNow()
+//                        }
+//                        let laterAction = UIAlertAction(title: "Later", style: UIAlertAction.Style.default) {
+//                            UIAlertAction in
+//                        }
+//                        alert.addAction(updateAction)
+//                        alert.addAction(laterAction)
+//                        self.present(alert, animated: true, completion: nil)
+                    }
+                } catch {
+                    print(error)
+                }
+            }
+
+            let birdTypeId = UserDefaults.standard.integer(forKey: "birdTypeId")
+
+            if birdTypeId == 3 {
+                if UserDefaults.standard.bool(forKey: "login") == true && UserDefaults.standard.bool(forKey: "Chicken") == true ||  UserDefaults.standard.bool(forKey: "login") == true && UserDefaults.standard.bool(forKey: "turkey") == true {
+
+                    let mapViewControllerObj = self.storyboard?.instantiateViewController(withIdentifier: "viewC") as? ViewController
+                    self.navigationController?.pushViewController(mapViewControllerObj!, animated: false)
+
+                } else if birdTypeId == 2 {
+
+             UserDefaults.standard.set(true, forKey: "turkey")
+
+                } else if birdTypeId == 1 {
+
+                    UserDefaults.standard.set(false, forKey: "turkey")
+                } else if  UserDefaults.standard.bool(forKey: "Terms&Condition") == true {
+                    let mapViewControllerObj = self.storyboard?.instantiateViewController(withIdentifier: "terms") as? Terms_ConditionViewController
+                    self.navigationController?.pushViewController(mapViewControllerObj!, animated: false)
+                } else {
+                    if birdTypeId == 3 && UserDefaults.standard.bool(forKey: "login") == true {
+                        let mapViewControllerObj = self.storyboard?.instantiateViewController(withIdentifier: "BirdsSelectionVC") as? BirdsSelectionVC
+
+                        self.navigationController?.pushViewController(mapViewControllerObj!, animated: false)
+                    } else {
+                        let mapViewControllerObj = self.storyboard?.instantiateViewController(withIdentifier: "viewC") as? ViewController
+                        self.navigationController?.pushViewController(mapViewControllerObj!, animated: false)
+                    }
+
+                }
+            } else if birdTypeId == 2 {
+
+                if  UserDefaults.standard.bool(forKey: "Terms&Condition") == true {
+                    let mapViewControllerObj = self.storyboard?.instantiateViewController(withIdentifier: "terms") as? Terms_ConditionViewController
+                    self.navigationController?.pushViewController(mapViewControllerObj!, animated: false)
+                } else {
+                    let mapViewControllerObj = self.storyboard?.instantiateViewController(withIdentifier: "viewC") as? ViewController
+                    self.navigationController?.pushViewController(mapViewControllerObj!, animated: false)
+                }
+
+                UserDefaults.standard.set(true, forKey: "turkey")
+
+            } else if birdTypeId == 1 {
+                if  UserDefaults.standard.bool(forKey: "Terms&Condition") == true {
+                    let mapViewControllerObj = self.storyboard?.instantiateViewController(withIdentifier: "terms") as? Terms_ConditionViewController
+                    self.navigationController?.pushViewController(mapViewControllerObj!, animated: false)
+                } else {
+                    let mapViewControllerObj = self.storyboard?.instantiateViewController(withIdentifier: "viewC") as? ViewController
+                    self.navigationController?.pushViewController(mapViewControllerObj!, animated: false)
+                }
+
+                UserDefaults.standard.set(false, forKey: "turkey")
+            } else {
+
+            let mapViewControllerObj = self.storyboard?.instantiateViewController(withIdentifier: "viewC") as? ViewController
+            self.navigationController?.pushViewController(mapViewControllerObj!, animated: false)
+            }})
+    }
+
+    func playVideo() {
+        let videoPath = Bundle.main.path(forResource: "Zoetis_video", ofType: "mp4")
+        let videoURL = URL(fileURLWithPath: videoPath!)
+        let player = AVPlayer(url: videoURL)
+        let playerViewController = AVPlayerViewController()
+        playerViewController.showsPlaybackControls = false
+
+        playerViewController.player = player
+        playerViewController.player!.play()
+        self.navigationController?.pushViewController(playerViewController, animated: false)
+    }
+
+}
