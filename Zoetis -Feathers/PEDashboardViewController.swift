@@ -97,6 +97,8 @@ class PEDashboardViewController: BaseViewController , ChartViewDelegate{
     @IBOutlet weak var alertLbl: UILabel!
     var fileDetailArray = NSArray()
     // MARK: - VIEW LIFE CYCLE
+    let noIdFound = "No id found"
+    let yyymmdd = "yyyy-MM-dd"
     
     override func viewDidLoad() {
         print("<<<<",self)
@@ -237,7 +239,7 @@ class PEDashboardViewController: BaseViewController , ChartViewDelegate{
     }
     
     private func getPlateTypes(){
-        PEDataService.sharedInstance.getPlateTypes(loginuserId: UserContext.sharedInstance.userDetailsObj?.userId ?? "No id found", viewController: self, completion: { [weak self] (status, error) in
+        PEDataService.sharedInstance.getPlateTypes(loginuserId: UserContext.sharedInstance.userDetailsObj?.userId ?? noIdFound, viewController: self, completion: { [weak self] (status, error) in
             guard let _ = self, error == nil else { return }
             if status == VaccinationConstants.VaccinationStatus.COREDATA_SAVED_SUCCESSFULLY || status == VaccinationConstants.VaccinationStatus.COREDATA_FETCHED_SUCCESSFULLY{
             }
@@ -278,7 +280,7 @@ class PEDashboardViewController: BaseViewController , ChartViewDelegate{
         
         if peNewAssessment?.customerName != nil {
             _ = ZoetisDropdownShared.sharedInstance.sharedPEOnGoingSession[0].peNewAssessment
-            _ = Date().string(format: "yyyy-MM-dd")
+            _ = Date().string(format: yyymmdd)
             
         } else {
             peNewAssessment = PENewAssessment()
@@ -2436,7 +2438,7 @@ extension PEDashboardViewController:  SyncBtnDelegatePE {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd/MM/yyyy"
             let date = dateFormatter.date(from: peCertificateData.certificateDate ?? "")
-            dateFormatter.dateFormat = "yyyy-MM-dd"
+            dateFormatter.dateFormat = yyymmdd
             if date != nil {
                 resultString = dateFormatter.string(from: date ?? Date())
                 
@@ -2862,7 +2864,7 @@ extension PEDashboardViewController:  SyncBtnDelegatePE {
             dict.evaluationDate = dateSig
         }else{
             let convertDateFormatter = DateFormatter()
-            convertDateFormatter.dateFormat = "yyyy-MM-dd"
+            convertDateFormatter.dateFormat = yyymmdd
             convertDateFormatter.timeZone = Calendar.current.timeZone
             convertDateFormatter.locale = Calendar.current.locale
         }
@@ -2878,7 +2880,7 @@ extension PEDashboardViewController:  SyncBtnDelegatePE {
         }
         
         let evalDateObj = dateFormatterObj.date(from: evaluationDate ?? "")
-        dateFormatterObj.dateFormat = "yyyy-MM-dd"
+        dateFormatterObj.dateFormat = yyymmdd
         let evalDateStr = dateFormatterObj.string(from: evalDateObj ?? Date())
         dict.evaluationDate = evalDateStr
         var FSRsign = ""
@@ -3443,14 +3445,14 @@ func convertDateFormat(inputDate: String) -> String {
     olDateFormatter.dateFormat = "MMM d, yyyy"
     let oldDate = olDateFormatter.date(from: inputDate)
     let convertDateFormatter = DateFormatter()
-    convertDateFormatter.dateFormat = "yyyy-MM-dd"
+    convertDateFormatter.dateFormat = yyymmdd
     
     let NewcountryId = UserDefaults.standard.integer(forKey: "nonUScountryId")
     if regionID == 3
-    {convertDateFormatter.dateFormat = "yyyy-MM-dd"
+    {convertDateFormatter.dateFormat = yyymmdd
     }
     else{
-        convertDateFormatter.dateFormat = "yyyy-MM-dd"
+        convertDateFormatter.dateFormat = yyymmdd
     }
     
     if oldDate != nil{
@@ -3465,14 +3467,14 @@ func convertDateFormat(inputDate: String) -> String {
 //        olDateFormatter.dateFormat = "MMM d, yyyy"
 //        let oldDate = olDateFormatter.date(from: inputDate)
 //        let convertDateFormatter = DateFormatter()
-//        convertDateFormatter.dateFormat = "yyyy-MM-dd"
+//        convertDateFormatter.dateFormat = yyymmdd
 //
 //        let NewcountryId = UserDefaults.standard.integer(forKey: "nonUScountryId")
 //        if regionID == 3
-//        {convertDateFormatter.dateFormat = "yyyy-MM-dd"
+//        {convertDateFormatter.dateFormat = yyymmdd
 //        }
 //        else{
-//            convertDateFormatter.dateFormat = "yyyy-MM-dd"
+//            convertDateFormatter.dateFormat = yyymmdd
 //        }
 //
 //        if oldDate != nil{
@@ -3490,7 +3492,7 @@ func convertDateFormat(inputDate: String) -> String {
 ////        let convertDateFormatter = DateFormatter()
 //////        convertDateFormatter.calendar = Calendar(identifier: .gregorian)
 //////        convertDateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
-////        convertDateFormatter.dateFormat = "yyyy-MM-dd"
+////        convertDateFormatter.dateFormat = yyymmdd
 ////
 ////        if regionID == 3
 ////        {
@@ -3503,7 +3505,7 @@ func convertDateFormat(inputDate: String) -> String {
 ////            } else {
 ////                print("Invalid date format")
 ////            }
-////            convertDateFormatter.dateFormat = "yyyy-MM-dd"
+////            convertDateFormatter.dateFormat = yyymmdd
 ////
 ////        }
 ////        else{
@@ -3522,13 +3524,13 @@ func convertDateFormat(inputDate: String) -> String {
         olDateFormatter.dateFormat = "MMM d, yyyy"
         let oldDate = olDateFormatter.date(from: inputDate)
         let convertDateFormatter = DateFormatter()
-        convertDateFormatter.dateFormat = "yyyy-MM-dd"
+        convertDateFormatter.dateFormat = yyymmdd
         
         let regionId = UserDefaults.standard.integer(forKey: "Regionid")
         if regionId != 3 {
             convertDateFormatter.calendar = Calendar(identifier: .gregorian)
             convertDateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
-            convertDateFormatter.dateFormat = "yyyy-MM-dd"
+            convertDateFormatter.dateFormat = yyymmdd
         }
         else{
             convertDateFormatter.dateFormat = "MM/dd/yyyy"
@@ -4352,7 +4354,7 @@ extension PEDashboardViewController{
     // MARK: - Get Scheduled assessment List
     private func getScheduledAssessments(){
         if ConnectionManager.shared.hasConnectivity() {
-            PEDataService.sharedInstance.getScheduledAssessments(loginuserId: UserContext.sharedInstance.userDetailsObj?.userId ?? "No id found", viewController: self, completion: { [weak self] (status, error) in
+            PEDataService.sharedInstance.getScheduledAssessments(loginuserId: UserContext.sharedInstance.userDetailsObj?.userId ?? noIdFound, viewController: self, completion: { [weak self] (status, error) in
                 guard let _ = self, error == nil else {
                     self?.dismissGlobalHUD(self?.view ?? UIView());
                     return
@@ -4626,7 +4628,7 @@ extension PEDashboardViewController{
     // MARK: - Get Vaccine Service Responce
     func getVaccinationServiceResponse(showHud:Bool){
         self.showGlobalProgressHUDWithTitle(self.view, title: "Data sync is in progress, please do not close the app." + "\n" + "*Note - Please don't minimize App while syncing.")
-        let id = UserContext.sharedInstance.userDetailsObj?.userId ?? "No id found"
+        let id = UserContext.sharedInstance.userDetailsObj?.userId ?? noIdFound
         let url = ZoetisWebServices.EndPoint.getPEScheduledCertifications.latestUrl + "\(id)?customerId=null&siteId=null"
         
         
@@ -5095,7 +5097,7 @@ extension PEDashboardViewController{
                 if SignatureDate != "" {
                     sigDate = self.convertDateFormat(inputDate: SignatureDate)
                 } else {
-                    sigDate = Date().stringFormat(format: "yyyy-MM-dd")
+                    sigDate = Date().stringFormat(format: yyymmdd)
                 }
                 let param : [String:String] = ["sig":String(id),"sig2":String(id2),"sig_Date":sigDate ,"sig_EmpID":RoleName,"sig_Name":representaiveName ?? "","sig_EmpID2":RoleName2,"sig_Name2":representaiveName2 ?? "","sig_Phone":representaiveNotes ?? ""]
                 jsonRe = (getJSON("QuestionAns") ?? JSON())

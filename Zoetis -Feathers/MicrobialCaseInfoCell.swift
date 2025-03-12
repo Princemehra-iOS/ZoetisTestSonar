@@ -73,22 +73,6 @@ class MicrobialCaseInfoCell: UITableViewCell {
         }
     }
     
-    
-    func configureMandatoryFiledsValidation(_ isPlusButtonPressed: Bool,
-                                            isSubmitButtonPressed: Bool,
-                                            currentSessionInProgressModel: RequisitionModel) {
-        let shouldHighlight = isPlusButtonPressed || isSubmitButtonPressed
-        
-        validateField(shouldHighlight, value: currentSessionInProgressModel.typeOfBird, view: self.typeOfBirdView)
-        validateField(shouldHighlight, value: currentSessionInProgressModel.company, view: self.companySelectionView)
-        validateField(shouldHighlight, value: currentSessionInProgressModel.site, view: self.siteSelectionView)
-        validateField(shouldHighlight, value: currentSessionInProgressModel.barCode == "F-" ? "" : "valid", view: self.barcodeSelectionView)
-    }
-
-    private func validateField(_ shouldHighlight: Bool, value: String, view: UIView) {
-        view.layer.borderColor = (shouldHighlight && value.isEmpty) ? UIColor.red.cgColor : defaultBorderColor
-    }
-
 /*
     func configureMandatoryFiledsValidation(_ isPlusButtonPressed: Bool,
                                                isSubmitButtonPressed: Bool,
@@ -118,5 +102,5 @@ class MicrobialCaseInfoCell: UITableViewCell {
             self.barcodeSelectionView.layer.borderColor = defaultBorderColor
         }
     }
- */
+    */
 }

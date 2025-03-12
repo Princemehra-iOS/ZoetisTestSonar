@@ -46,7 +46,7 @@ class CoreDataHandlerPVE: NSObject {
     let predicateSeqisSelectedStr = "seq_Number == %@ AND isSelected == %@"
     let predicateSeqTypeSyncId = "seq_Number == %@ AND id == %@ AND type == %@ AND syncId == %@"
     let predicateSeqId = "seq_Number == %@ AND id == %@"
-    
+    let message = "test message"
     override init() {
         super.init()
         self.setupContext()
@@ -71,7 +71,7 @@ class CoreDataHandlerPVE: NSObject {
         do {
             try managedContext.save()
         } catch {
-            print("test message")
+            print(message)
         }
         vaccineNames.append(person)
     }
@@ -88,7 +88,7 @@ class CoreDataHandlerPVE: NSObject {
         do {
             try managedContext.save()
         } catch {
-            print("test message")
+            print(message)
         }
         vaccineMan.append(person)
     }
@@ -106,7 +106,7 @@ class CoreDataHandlerPVE: NSObject {
         do {
             try managedContext.save()
         } catch {
-            print("test message")
+            print(message)
         }
         surveyType.append(person)
     }
@@ -123,7 +123,7 @@ class CoreDataHandlerPVE: NSObject {
         do {
             try managedContext.save()
         } catch {
-            print("test message")
+            print(message)
         }
         siteInjects.append(person)
     }
@@ -140,7 +140,7 @@ class CoreDataHandlerPVE: NSObject {
         do {
             try managedContext.save()
         } catch {
-            print("test message")
+            print(message)
         }
         serotype.append(person)
     }
@@ -156,7 +156,7 @@ class CoreDataHandlerPVE: NSObject {
         do {
             try managedContext.save()
         } catch {
-            print("test message")
+            print(message)
         }
         
         CustData.append(person)
@@ -180,7 +180,7 @@ class CoreDataHandlerPVE: NSObject {
         do {
             try managedContext.save()
         } catch {
-            print("test message")
+            print(message)
         }
         vaccineMan.append(person)
     }
@@ -201,7 +201,7 @@ class CoreDataHandlerPVE: NSObject {
         do {
             try managedContext.save()
         } catch {
-            print("test message")
+            print(message)
         }
         vaccineMan.append(person)
     }
@@ -222,7 +222,7 @@ class CoreDataHandlerPVE: NSObject {
                 
             }
         } catch {
-            print("test message")
+            print(message)
         }
         
         return dataArray
@@ -245,7 +245,7 @@ class CoreDataHandlerPVE: NSObject {
                 
             }
         } catch {
-            print("test message")
+            print(message)
         }
         return dataArray
         
@@ -339,7 +339,7 @@ class CoreDataHandlerPVE: NSObject {
                 
             }
         } catch {
-            print("test message")
+            print(message)
         }
         
         return dataArray
@@ -365,7 +365,7 @@ class CoreDataHandlerPVE: NSObject {
                 
             }
         } catch {
-            print("test message")
+            print(message)
         }
         
         return dataArray
@@ -394,7 +394,7 @@ class CoreDataHandlerPVE: NSObject {
             }
         } 
         catch {
-            print("test message")
+            print(message)
         }
         
         return dataArray
@@ -419,7 +419,7 @@ class CoreDataHandlerPVE: NSObject {
                 dataArray = results as NSArray
             }
         } catch {
-            print("test message")
+            print(message)
         }
         
         return dataArray
@@ -638,7 +638,7 @@ class CoreDataHandlerPVE: NSObject {
                 
             }
         } catch {
-            print("test message")
+            print(message)
         }
         
         return dataArray
@@ -658,7 +658,7 @@ class CoreDataHandlerPVE: NSObject {
             }
             
         } catch {
-            print("test message")
+            print(message)
         }
         
     }
@@ -681,7 +681,7 @@ class CoreDataHandlerPVE: NSObject {
                 
             }
         } catch {
-            print("test message")
+            print(message)
         }
         
         return dataArray
@@ -707,7 +707,7 @@ class CoreDataHandlerPVE: NSObject {
                 
             }
         } catch {
-            print("test message")
+            print(message)
         }
         
         return dataArray
@@ -731,7 +731,7 @@ class CoreDataHandlerPVE: NSObject {
                 
             }
         } catch {
-            print("test message")
+            print(message)
         }
         
         return dataArray
@@ -752,7 +752,7 @@ class CoreDataHandlerPVE: NSObject {
         do {
             try managedContext.save()
         } catch {
-            print("test message")
+            print(message)
         }
         
         CustData.append(person)
@@ -772,7 +772,7 @@ class CoreDataHandlerPVE: NSObject {
         do {
             try managedContext.save()
         } catch {
-            print("test message")
+            print(message)
         }
         
         breedOfBirdsData.append(person)
@@ -791,7 +791,7 @@ class CoreDataHandlerPVE: NSObject {
         do {
             try managedContext.save()
         } catch {
-            print("test message")
+            print(message)
         }
         
         breedOfBirdsData.append(person)
@@ -811,7 +811,7 @@ class CoreDataHandlerPVE: NSObject {
         do {
             try managedContext.save()
         } catch {
-            print("test message")
+            print(message)
         }
         
         ageOfBirdsData.append(person)
@@ -840,7 +840,7 @@ class CoreDataHandlerPVE: NSObject {
                 dataArray = results as NSArray
             }
         } catch {
-            print("test message")
+            print(message)
         }
         return dataArray
         
@@ -859,7 +859,7 @@ class CoreDataHandlerPVE: NSObject {
         do {
             try managedContext.save()
         } catch {
-            print("test message")
+            print(message)
         }
         
         breedOfBirdsData.append(person)
@@ -881,7 +881,7 @@ class CoreDataHandlerPVE: NSObject {
         do {
             try managedContext.save()
         } catch {
-            print("test message")
+            print(message)
         }
         
         siteIDData.append(person)
@@ -904,7 +904,7 @@ class CoreDataHandlerPVE: NSObject {
                 
             }
         } catch {
-            print("test message")
+            print(message)
         }
         
         return dataArray
@@ -924,7 +924,7 @@ class CoreDataHandlerPVE: NSObject {
         do {
             try managedContext.save()
         } catch {
-            print("test message")
+            print(message)
         }
         
         evaluatorData.append(person)
@@ -944,7 +944,7 @@ class CoreDataHandlerPVE: NSObject {
         do {
             try managedContext.save()
         } catch {
-            print("test message")
+            print(message)
         }
         
         assignUserData.append(person)
@@ -963,7 +963,7 @@ class CoreDataHandlerPVE: NSObject {
         do {
             try managedContext.save()
         } catch {
-            print("test message")
+            print(message)
         }
         
         housingData.append(person)
@@ -988,7 +988,7 @@ class CoreDataHandlerPVE: NSObject {
         do {
             try managedContext.save()
         } catch {
-            print("test message")
+            print(message)
         }
         
         assessmentCat.append(person)
@@ -1030,7 +1030,7 @@ class CoreDataHandlerPVE: NSObject {
         do {
             try managedContext.save()
         } catch {
-            print("test message")
+            print(message)
         }
         
         assessmentQ.append(person)
@@ -1052,7 +1052,7 @@ class CoreDataHandlerPVE: NSObject {
                 
             }
         } catch {
-            print("test message")
+            print(message)
         }
         return dataArray
         
@@ -1071,7 +1071,7 @@ class CoreDataHandlerPVE: NSObject {
             }
         }
         catch {
-            print("test message")
+            print(message)
         }
         
     }
@@ -1093,7 +1093,7 @@ class CoreDataHandlerPVE: NSObject {
                 
             }
         } catch {
-            print("test message")
+            print(message)
         }
         
         return dataArray
@@ -1116,7 +1116,7 @@ class CoreDataHandlerPVE: NSObject {
                 
             }
         } catch {
-            print("test message")
+            print(message)
         }
         
         return dataArray
@@ -1157,7 +1157,7 @@ class CoreDataHandlerPVE: NSObject {
                 }
             }
         } catch {
-            print("test message")
+            print(message)
         }
         
         return "\(sumMarks)/\(maxMarks)"
@@ -1198,7 +1198,7 @@ class CoreDataHandlerPVE: NSObject {
                 }
             }
         } catch {
-            print("test message")
+            print(message)
         }
         
         return "\(sumMarks)/\(maxMarks)"
@@ -1240,7 +1240,7 @@ class CoreDataHandlerPVE: NSObject {
                 }
             }
         } catch {
-            print("test message")
+            print(message)
         }
         
         return (sumMarks , maxMarks)
@@ -1280,7 +1280,7 @@ class CoreDataHandlerPVE: NSObject {
                 }
             }
         } catch {
-            print("test message")
+            print(message)
         }
         
         return (sumMarks , maxMarks)
@@ -1561,14 +1561,14 @@ class CoreDataHandlerPVE: NSObject {
                 results![0].setValue("synced", forKey: "type")
             }
         } catch {
-            print("test message")
+            print(message)
         }
         
         do {
             try managedContext.save()
         }
         catch {
-            print("test message")
+            print(message)
         }
     }
     
@@ -1595,7 +1595,7 @@ class CoreDataHandlerPVE: NSObject {
         do {
             try managedContext.save()
         } catch {
-            print("test message")
+            print(message)
         }
         
         managedObject.append(person)
@@ -1625,7 +1625,7 @@ class CoreDataHandlerPVE: NSObject {
         do {
             try managedContext.save()
         } catch {
-            print("test message")
+            print(message)
         }
         
         managedObject.append(person)
@@ -1653,7 +1653,7 @@ class CoreDataHandlerPVE: NSObject {
                 
             }
         } catch {
-            print("test message")
+            print(message)
         }
         
         return dataArray
@@ -1712,7 +1712,7 @@ class CoreDataHandlerPVE: NSObject {
                 
             }
         } catch {
-            print("test message")
+            print(message)
         }
         
         return dataArray
@@ -1734,7 +1734,7 @@ class CoreDataHandlerPVE: NSObject {
                 return userIDArray
             }
         } catch {
-            print("test message")
+            print(message)
         }
         return []
     }
@@ -1757,7 +1757,7 @@ class CoreDataHandlerPVE: NSObject {
         do {
             try managedContext.save()
         } catch {
-            print("test message")
+            print(message)
         }
         
         assessmentCat.append(person)
@@ -1807,7 +1807,7 @@ class CoreDataHandlerPVE: NSObject {
                 
             }
         } catch {
-            print("test message")
+            print(message)
         }
         
         return dataArray
@@ -1876,7 +1876,7 @@ class CoreDataHandlerPVE: NSObject {
                 
             }
         } catch {
-            print("test message")
+            print(message)
         }
         
         do {
@@ -1884,7 +1884,7 @@ class CoreDataHandlerPVE: NSObject {
             //   NotificationCenter.default.post(name: NSNotification.Name("reloadSNATblViewNoti"), object: nil, userInfo: nil)
         }
         catch {
-            print("test message")
+            print(message)
         }
     }
     
@@ -1903,14 +1903,14 @@ class CoreDataHandlerPVE: NSObject {
                 results![0].setValue(type, forKey: "type")
             }
         } catch {
-            print("test message")
+            print(message)
         }
         
         do {
             try managedContext.save()
         }
         catch {
-            print("test message")
+            print(message)
         }
         
     }
@@ -2096,7 +2096,7 @@ class CoreDataHandlerPVE: NSObject {
         do {
             try managedContext.save()
         } catch {
-            print("test message")
+            print(message)
         }
         
         sessionPVE.append(person)
@@ -2277,7 +2277,7 @@ class CoreDataHandlerPVE: NSObject {
         do {
             try managedContext.save()
         } catch {
-            print("test message")
+            print(message)
         }
         
         sessionPVE.append(person)
@@ -2368,7 +2368,7 @@ class CoreDataHandlerPVE: NSObject {
         do {
             try managedContext.save()
         } catch {
-            print("test message")
+            print(message)
         }
         assessmentCat.append(person)
     }
@@ -2401,14 +2401,14 @@ class CoreDataHandlerPVE: NSObject {
             }
             
         } catch {
-            print("test message")
+            print(message)
         }
         
         do {
             try managedContext.save()
         }
         catch {
-            print("test message")
+            print(message)
         }
         
     }
@@ -2437,7 +2437,7 @@ class CoreDataHandlerPVE: NSObject {
             try managedContext.save()
         }
         catch {
-            print("test message")
+            print(message)
         }
         
     }
@@ -2489,7 +2489,7 @@ class CoreDataHandlerPVE: NSObject {
                 }
             }
         } catch {
-            print("test message")
+            print(message)
         }
         
         
@@ -2521,7 +2521,7 @@ class CoreDataHandlerPVE: NSObject {
             }
         }
         catch {
-            print("test message")
+            print(message)
         }
         
     }
@@ -3108,7 +3108,7 @@ class CoreDataHandlerPVE: NSObject {
             }
             
         } catch {
-            print("test message")
+            print(message)
         }
         
     }
@@ -3127,7 +3127,7 @@ class CoreDataHandlerPVE: NSObject {
             }
             
         } catch {
-            print("test message")
+            print(message)
         }
         
     }
@@ -3146,7 +3146,7 @@ class CoreDataHandlerPVE: NSObject {
             }
             
         } catch {
-            print("test message")
+            print(message)
         }
         
     }
@@ -3290,7 +3290,7 @@ class CoreDataHandlerPVE: NSObject {
         do {
             try managedContext.save()
         } catch {
-            print("test message")
+            print(message)
         }
         pve_Sync.append(person)
     }
@@ -3804,7 +3804,7 @@ class CoreDataHandlerPVE: NSObject {
             try managedContext.save()
         }
         catch {
-            print("test message")
+            print(message)
         }
         
     }
@@ -3889,7 +3889,7 @@ class CoreDataHandlerPVE: NSObject {
         do {
             try managedContext.save()
         } catch {
-            print("test message")
+            print(message)
         }
         assessmentCat.append(person)
         
@@ -3921,7 +3921,7 @@ class CoreDataHandlerPVE: NSObject {
         do {
             try managedContext.save()
         } catch {
-            print("test message")
+            print(message)
         }
         assessmentCat.append(person)
         
@@ -3943,7 +3943,7 @@ class CoreDataHandlerPVE: NSObject {
                 
             }
         } catch {
-            print("test message")
+            print(message)
         }
         
         return dataArray

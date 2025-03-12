@@ -13,7 +13,7 @@ class PEAssessmentsDAO{
     static let sharedInstance = PEAssessmentsDAO()
     let managedContext = (UIApplication.shared.delegate as? AppDelegate)!.managedObjectContext
     let loginAssStatus = "loginUserId = %@ AND  assessmentStatus = %@"
-    
+    let message = "test message"
     func getAssessmentObject()-> PE_ScheduledAssessments{
         let vaccinationCertObj = NSEntityDescription.insertNewObject(forEntityName: "PE_ScheduledAssessments" , into: managedContext) as! PE_ScheduledAssessments
         return vaccinationCertObj
@@ -81,7 +81,7 @@ class PEAssessmentsDAO{
             } else {
             }
         } catch {
-            print("test message")
+            print(message)
         }
         return dataArray
     }
@@ -151,7 +151,7 @@ class PEAssessmentsDAO{
             }
             try managedContext.save()
         } catch{
-            print("test message")
+            print(message)
         }
     }
     
@@ -321,7 +321,7 @@ class PEAssessmentsDAO{
         do {
             vaccinationCertificationArr = try managedContext.fetch(fetchRequest) as! [PE_ScheduledAssessments]
         } catch{
-            print("test message")
+            print(message)
         }
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat="MM/dd/yyyy"
@@ -348,7 +348,7 @@ class PEAssessmentsDAO{
         do {
             vaccinationCertificationArr = try managedContext.fetch(fetchRequest) as! [PE_AssessmentRejected]
         } catch{
-            print("test message")
+            print(message)
         }
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat="MM/dd/yyyy"
@@ -520,7 +520,7 @@ class PEAssessmentsDAO{
             
         } catch
         {
-            print("test message")
+            print(message)
         }
         return nil
     }
@@ -609,7 +609,7 @@ class PEAssessmentsDAO{
                 }
             }
         } catch {
-            print("test message")
+            print(message)
         }
         if peNewAssessmentArray.count > 0{
             return peNewAssessmentArray[0]

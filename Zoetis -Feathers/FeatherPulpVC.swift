@@ -358,7 +358,6 @@ class FeatherPulpVC: BaseViewController {
     }
     
     private func presentReviewerController(){
-        /*
         let obj = ReviewerViewController(nibName: "ReviewerViewController", bundle: nil)
         obj.definesPresentationContext = true
         obj.providesPresentationContextTransitionStyle = true
@@ -413,7 +412,6 @@ class FeatherPulpVC: BaseViewController {
         self.present(obj, animated: false) {
             print("presented")
         }
-        */
     }
     
     private func updateBoolValueOfReviewer(reviewerData: MicrobialSelectedUnselectedReviewer){
@@ -521,7 +519,7 @@ class FeatherPulpVC: BaseViewController {
             }
         }
     }
-   /*
+    
      //MARK:- Save  Sample Info/ Case Info data into DB when Submitted or Save As Draft
     func saveCaseInfoData(sessionStatus: SessionStatus) {
         switch self.requisitionSavedSessionType {
@@ -558,7 +556,7 @@ class FeatherPulpVC: BaseViewController {
             break
         }
     }
-    */
+    
     func checkIfAllFieldsAreFilledInCaseInfo() -> Bool{
         let cellCaseInfo = featherPulpTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? MicrobialCaseInfoCell
         let cellSampleInfo = featherPulpTableView.cellForRow(at: IndexPath(row: 0, section: 1)) as? MicrobialSampleInfoCell
@@ -599,7 +597,7 @@ class FeatherPulpVC: BaseViewController {
         }
         return true
     }
-    /*
+    
     func checkIfSampleInfoAreFilled() -> Bool{
         let cell = featherPulpTableView.cellForRow(at: IndexPath(row: 0, section: 2)) as? FeatherpulpSampleInfoTableViewCell
         if let farmeEnterNameTextField = cell?.farmeEnterNameTextField.text{
@@ -670,7 +668,7 @@ class FeatherPulpVC: BaseViewController {
         }
         return true
     }
-    */
+    
     @IBAction func submitBtnClk(_ sender: UIButton) {
         if !checkIfAllFieldsAreFilledInCaseInfo(){
             return
@@ -953,7 +951,7 @@ extension FeatherPulpVC: UITableViewDelegate, UITableViewDataSource, MicrobialSa
             cell.barcodeTxt.text = currentRequisition.barCode
             cell.barcodeTxt.delegate = self
             featherPulpTableView.allowsSelection = false
-            cell.configureMandatoryFiledsValidation(isPlusBtnClicked, isSubmitButtonPressed: self.isSubmitBtnClk, currentSessionInProgressModel: self.currentRequisition)
+          //  cell.configureMandatoryFiledsValidation(isPlusBtnClicked, isSubmitButtonPressed: self.isSubmitBtnClk, currentSessionInProgressModel: self.currentRequisition)
             cell.unableDisableAccordingToSessionType(sessionType: self.requisitionSavedSessionType)
             return cell
             

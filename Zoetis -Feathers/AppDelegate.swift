@@ -40,11 +40,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MessagingDelegate {
     let gigyaCname = "eiamus.zoetisus.com"
     let timeStamp = "timeStamp = %@"
     let timeStamp2 = "timeStamp == %@"
-
+    let nameJames = "James Barker"
+    
     func initiateLeftPenal() {
         window = UIWindow(frame: UIScreen.main.bounds)
         let containerViewController = ContainerViewController()
         window!.rootViewController = containerViewController
+        
+        let serneyNoStr = generateSeveyNumber()
+        
     }
     
     func showAlert(_ msg:String) {
@@ -99,7 +103,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MessagingDelegate {
         application.isStatusBarHidden = true
         //        setUpSlideMenu()
         metricOrImperialClick = "Imperial"
-
+//        var i: Int?
+//        i = UserDefaults.standard.integer(forKey: "isFeed")
+//        if i != 1 {
+//            let feed = UserDefaults.standard.integer(forKey: "feedId")
+//            if feed>0 {
+//            } else {
+//                UserDefaults.standard.set(-1, forKey: "feedId")
+//                UserDefaults.standard.synchronize()
+//            }
+//        }
+        
         
         let isFeed = UserDefaults.standard.integer(forKey: "isFeed")
         if isFeed != 1 {
@@ -109,11 +123,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MessagingDelegate {
             }
         }
         
+        var isNewPostingId = UserDefaults.standard.bool(forKey: "isNewPostingId")
         
         
         if userDefaults.object(forKey: "ApplicationIdentifier") == nil {
-            let uniqueID = Foundation.UUID().uuidString
-            userDefaults.set(uniqueID, forKey: "ApplicationIdentifier")
+            let UUID = Foundation.UUID().uuidString
+            userDefaults.set(UUID, forKey: "ApplicationIdentifier")
             userDefaults.synchronize()
         }
         
@@ -285,17 +300,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MessagingDelegate {
     func application(_ application: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         let val = UserDefaults.standard.integer(forKey: "chick")
         if val  ==  4 {
-            if let dashView = window?.rootViewController as? DashViewController {
+            if let VC = window?.rootViewController as? DashViewController {
                 // Update JSON data
-                dashView.self.callSyncApi()
+                VC.self.callSyncApi()
                 completionHandler(.newData)
             } else {
                 completionHandler(.failed)
             }
         } else {
-            if let dashViewTurkey = window?.rootViewController as? DashViewControllerTurkey {
+            if let VC = window?.rootViewController as? DashViewControllerTurkey {
                 // Update JSON data
-                dashViewTurkey.self.callSyncApi()
+                VC.self.callSyncApi()
                 completionHandler(.newData)
             } else {
                 completionHandler(.failed)
@@ -397,7 +412,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MessagingDelegate {
         
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
         let url = self.applicationDocumentsDirectory.appendingPathComponent("SingleViewCoreData.sqlite")
-        let failureReason = "There was an error creating or loading the application's saved data."
+        var failureReason = "There was an error creating or loading the application's saved data."
         do {
             let options = [ NSInferMappingModelAutomaticallyOption: true,
                       NSMigratePersistentStoresAutomaticallyOption: true]

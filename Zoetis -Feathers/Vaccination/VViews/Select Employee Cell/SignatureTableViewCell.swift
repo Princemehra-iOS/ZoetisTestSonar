@@ -549,7 +549,7 @@ class SignatureTableViewCell: UITableViewCell, SignatureViewDelegate  {
     
     
     func SignatureViewDidCaptureSignature(view: SignatureView, signature: Signature?) {
-        
+        print(appDelegate.testFuntion())
         
     }
     

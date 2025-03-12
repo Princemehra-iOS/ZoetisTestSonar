@@ -6999,7 +6999,7 @@ class CaptureNecroStep2Turkey: BaseViewController,AddFarmPopTurkey,summmaryRepor
         
     }
     @IBAction func logOut(_ sender: AnyObject) {
-        
+        print(appDelegate.testFuntion())
         
     }
     
