@@ -249,7 +249,7 @@ class PEAssesmentFinalize: BaseViewController , DatePickerPopupViewControllerPro
     }
     
     @IBAction func btnAction(_ sender: Any) {
-        print("Test Message",appDelegate.testFuntion())
+       
     }
     
     override func viewDidLoad() {
@@ -1182,7 +1182,7 @@ extension PEAssesmentFinalize: UITableViewDelegate, UITableViewDataSource{
     }
     
     func setupNewInovoCell(_ tableView: UITableView, cellForRowAt indexPath: IndexPath){
-        print("Test Message",appDelegate.testFuntion())
+      
     }
     
     
@@ -1417,9 +1417,7 @@ extension PEAssesmentFinalize: UITableViewDelegate, UITableViewDataSource{
                             self.tableviewIndexPath = indexPath
                             self.certificateData[self.tableviewIndexPath.row].name = error
                             CoreDataHandlerPE().updateVMixerInDB(peCertificateData:  self.certificateData[self.tableviewIndexPath.row], id:  self.certificateData[self.tableviewIndexPath.row].id ?? 0)
-                            UIView.performWithoutAnimation {
-                                print("Test Message")
-                            }
+                           
                             cell.vaccNameField.resignFirstResponder()
                             cell.vaccNameField.endEditing(true)
                         }
@@ -4730,10 +4728,7 @@ extension PEAssesmentFinalize : UICollectionViewDelegate, UICollectionViewDataSo
             scoreParentView.isHidden = false
         }
     }
-    
-    func updateCategoriesInShared(){
-        print("Test Message",appDelegate.testFuntion())
-    }
+   
     
     // MARK: - Update Assessment Binding notes for every questions */
     
