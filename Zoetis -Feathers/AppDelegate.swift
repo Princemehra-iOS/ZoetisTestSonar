@@ -46,9 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MessagingDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         let containerViewController = ContainerViewController()
         window!.rootViewController = containerViewController
-        
         let serneyNoStr = generateSeveyNumber()
-        
     }
     
     func showAlert(_ msg:String) {
@@ -85,9 +83,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MessagingDelegate {
         } else {
             UserDefaults.standard.set(false, forKey: "PENewUserLoginFlag")
         }
-//        if userDefaults.value(forKey: "HasLaunchedOnce") == nil && (userDefaults.value(forKey: "HasLaunchedOnce") as? Bool)! == false { // App already launched
-//            UserDefaults.standard.set(false, forKey: "PENewUserLoginFlag")
-//        }
+
         
         UserDefaults.standard.set(false, forKey: "hasLoggedIn")
         //        initiateLeftPenal()
@@ -113,7 +109,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate,MessagingDelegate {
 //                UserDefaults.standard.synchronize()
 //            }
 //        }
-        
         
         let isFeed = UserDefaults.standard.integer(forKey: "isFeed")
         if isFeed != 1 {
